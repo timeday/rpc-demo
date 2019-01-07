@@ -1,6 +1,6 @@
 package protocol.dubbo;
 
-import framework.Invocation;
+import rpcFramework.Invocation;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

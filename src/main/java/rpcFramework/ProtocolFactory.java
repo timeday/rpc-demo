@@ -1,4 +1,4 @@
-package framework;
+package rpcFramework;
 
 import protocol.Protocol;
 import protocol.dubbo.ProtocolDubboImpl;
@@ -17,8 +17,7 @@ public class ProtocolFactory {
      * @return
      */
     public static Protocol getProtocol(){
-
-        String protocolName = System.getProperty("protocolName");
+        String protocolName =  PropertiesUtils.getSystemInfo("protocolName");
 
         if (protocolName==null || protocolName.equalsIgnoreCase(""))
            protocolName="http";

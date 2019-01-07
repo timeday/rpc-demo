@@ -1,6 +1,6 @@
 package protocol.http;
 
-import framework.Invocation;
+import rpcFramework.Invocation;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;

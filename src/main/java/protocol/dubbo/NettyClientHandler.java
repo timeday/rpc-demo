@@ -20,13 +20,14 @@ public class NettyClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         response=msg;
-        System.out.println("client接收到服务器返回的消息:" + msg);
+        ctx.close();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
+        ctx.close();
         System.out.println("client exception is general");
     }
-
 
 }

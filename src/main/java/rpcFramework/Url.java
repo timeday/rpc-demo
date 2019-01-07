@@ -1,4 +1,4 @@
-package framework;
+package rpcFramework;
 
 import java.io.Serializable;
 import java.util.Objects;

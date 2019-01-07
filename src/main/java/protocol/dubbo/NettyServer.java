@@ -40,7 +40,6 @@ public class NettyServer {
                             pipeline.addLast("handler",new NettyServerHandler());
                         }
                     });
-                    InetSocketAddress inetSocketAddress=new InetSocketAddress(port);
                     ChannelFuture future = serverBootstrap.bind(hostname,port).sync();
                     System.out.println("Server start listen at " + port );
                     future.channel().closeFuture().sync();

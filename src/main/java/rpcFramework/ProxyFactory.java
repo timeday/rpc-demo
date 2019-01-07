@@ -1,7 +1,6 @@
-package framework;
+package rpcFramework;
 
 import protocol.Protocol;
-import protocol.http.HttpClient;
 import register.Register;
 
 import java.lang.reflect.InvocationHandler;

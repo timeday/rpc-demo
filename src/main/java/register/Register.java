@@ -1,6 +1,6 @@
 package register;
 
-import framework.Url;
+import rpcFramework.Url;
 
 import java.io.*;
 import java.util.HashMap;

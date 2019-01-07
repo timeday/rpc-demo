@@ -1,6 +1,6 @@
 package customer;
 
-import framework.ProxyFactory;
+import rpcFramework.ProxyFactory;
 import provider.api.HelloService;
 
 /**

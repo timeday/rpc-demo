@@ -1,7 +1,7 @@
 package protocol.dubbo;
 
-import framework.Invocation;
-import framework.Url;
+import rpcFramework.Invocation;
+import rpcFramework.Url;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import register.Register;
@@ -38,12 +38,15 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         Invocation invocation=(Invocation)msg;
 
         InetSocketAddress socketAddress =(InetSocketAddress)ctx.channel().localAddress();
+        Url url = new Url(socketAddress.getAddress().getHostAddress(), socketAddress.getPort());
+        if(socketAddress.getAddress().getHostAddress().equalsIgnoreCase("127.0.0.1")){
+            url.setHostname("localhost");
+        }
         //有问题
-        Class aClass = Register.get(invocation.getInterfaceName(), new Url("localhost", socketAddress.getPort()));
-
+        Class aClass = Register.get(invocation.getInterfaceName(), url);
         Method method = aClass.getMethod(invocation.getMethodName(), invocation.getParamTypes());
         Object invoke = method.invoke(aClass.newInstance(), invocation.getParams());
-        System.out.println("Netty-----------"+invoke.toString());
+        System.out.println("服务端(Netty)接受到的数据-----------"+invoke.toString());
         ctx.writeAndFlush("Netty:"+invoke);
     }
     @Override

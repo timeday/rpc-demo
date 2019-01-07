@@ -1,7 +1,7 @@
 package protocol.dubbo;
 
-import framework.Invocation;
-import framework.Url;
+import rpcFramework.Invocation;
+import rpcFramework.Url;
 import protocol.Protocol;
 
 /**
