@@ -1,5 +1,6 @@
 package register;
 
+import rpcFramework.PropertiesUtils;
 import rpcFramework.Url;
 
 import java.io.*;
@@ -31,7 +32,7 @@ public class Register {
     private static void saveFile() {
 
         try {
-            File file = new File("d:/register.txt");
+            File file = new File(PropertiesUtils.getSystemInfo("filepath"));
             if(!file.exists()){
                 file.createNewFile();
             }
